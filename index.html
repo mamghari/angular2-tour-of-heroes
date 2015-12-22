@@ -9,8 +9,16 @@
   <script src="lib/Rx.js"></script>
   <script src="lib/angular2.dev.js"></script>
   <script src="lib/router.dev.js"></script>
+  <script src="lib/uuid.js"></script>
   <script>
-      System.config({packages: {app: {format: 'register',defaultExtension: 'js'}}});
+      System.config({
+        packages: {
+          app: {
+            format: 'register',
+            defaultExtension: 'js'
+          }
+        }
+      });
       System.import('app/boot')
             .then(null, console.error.bind(console));
   </script>

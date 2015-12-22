@@ -1,4 +1,4 @@
-.heroes {list-style-type: none; margin-left: 1em; padding: 0; width: 10em;}
+.heroes {list-style-type: none; margin-left: 1em; padding: 0; width: 40em;}
 
 .heroes li { cursor: pointer; position: relative; left: 0; transition: all 0.2s ease; }
 
