@@ -1,10 +1,5 @@
+/// <reference path="../typings/node-uuid/node-uuid-global.d.ts" />
 import { Hero } from './hero';
-
-interface UUID {
-  v4: {(): string};
-}
-
-declare var uuid: UUID;
 
 export var HEROES: Hero[] = [
   {'id': uuid.v4(), 'name': 'Mr. Nice'},
