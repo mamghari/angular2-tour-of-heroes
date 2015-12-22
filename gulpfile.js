@@ -4,6 +4,8 @@ const typescript = require('gulp-typescript');
 const tscConfig = require('./tsconfig.json');
 const sourcemaps = require('gulp-sourcemaps');
 const tslint = require('gulp-tslint');
+const browserSync = require('browser-sync');
+const reload = browserSync.reload;
 
 // clean the contents of the distribution directory
 gulp.task('clean', function () {
@@ -46,5 +48,17 @@ gulp.task('compile', ['clean'], function () {
     .pipe(gulp.dest('dist/app'));
 });
 
+// Run browsersync for development
+gulp.task('serve', ['build'], function() {
+  browserSync({
+    server: {
+      baseDir: 'dist'
+    }
+  });
+
+  gulp.watch(['app/**/*', 'index.html', 'styles.css'], ['buildAndReload']);
+});
+
 gulp.task('build', ['tslint', 'compile', 'copy:libs', 'copy:assets']);
+gulp.task('buildAndReload', ['build'], reload);
 gulp.task('default', ['build']);
