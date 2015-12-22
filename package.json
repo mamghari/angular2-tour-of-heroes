@@ -5,6 +5,7 @@
     "tsc": "tsc",
     "tsc:w": "tsc -w",
     "lite": "lite-server",
+    "tslint": "tslint -c tslint.json app/**/*.ts",
     "start": "concurrent \"npm run tsc:w\" \"npm run lite\" "
   },
   "dependencies": {
@@ -20,8 +21,10 @@
     "concurrently": "^1.0.0",
     "lite-server": "^1.2.0",
     "typescript": "^1.7.3",
+    "tslint": "^3.2.1",
     "gulp": "^3.9.0",
     "gulp-typescript": "^2.8.0",
+    "gulp-tslint": "^3.6.0",
     "del": "^2.1.0"
   }
 }

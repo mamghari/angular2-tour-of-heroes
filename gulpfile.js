@@ -3,6 +3,7 @@ const del = require('del');
 const typescript = require('gulp-typescript');
 const tscConfig = require('./tsconfig.json');
 const sourcemaps = require('gulp-sourcemaps');
+const tslint = require('gulp-tslint');
 
 // clean the contents of the distribution directory
 gulp.task('clean', function () {
@@ -27,6 +28,13 @@ gulp.task('copy:libs', ['clean'], function() {
     .pipe(gulp.dest('dist/lib'))
 });
 
+// linting
+gulp.task('tslint', function() {
+  return gulp.src('app/**/*.ts')
+    .pipe(tslint())
+    .pipe(tslint.report('verbose'));
+});
+
 
 // TypeScript compile
 gulp.task('compile', ['clean'], function () {
@@ -38,5 +46,5 @@ gulp.task('compile', ['clean'], function () {
     .pipe(gulp.dest('dist/app'));
 });
 
-gulp.task('build', ['compile', 'copy:libs', 'copy:assets']);
+gulp.task('build', ['tslint', 'compile', 'copy:libs', 'copy:assets']);
 gulp.task('default', ['build']);
