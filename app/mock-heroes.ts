@@ -1,4 +1,3 @@
-/// <reference path="../typings/node-uuid/node-uuid-global.d.ts" />
 import { Hero } from './hero';
 
 export var HEROES: Hero[] = [

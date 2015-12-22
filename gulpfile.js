@@ -6,6 +6,7 @@ const sourcemaps = require('gulp-sourcemaps');
 const tslint = require('gulp-tslint');
 const browserSync = require('browser-sync');
 const reload = browserSync.reload;
+const tsconfig = require('tsconfig-glob');
 
 // clean the contents of the distribution directory
 gulp.task('clean', function () {
@@ -42,11 +43,19 @@ gulp.task('tslint', function() {
 // TypeScript compile
 gulp.task('compile', ['clean'], function () {
   return gulp
-    .src('app/**/*.ts')
+    .src(tscConfig.files)
     .pipe(sourcemaps.init())
     .pipe(typescript(tscConfig.compilerOptions))
     .pipe(sourcemaps.write('.'))
     .pipe(gulp.dest('dist/app'));
+});
+
+// update the tsconfig files based on the glob pattern
+gulp.task('tsconfig-glob', function () {
+  return tsconfig({
+    configPath: '.',
+    indent: 2
+  });
 });
 
 // Run browsersync for development
