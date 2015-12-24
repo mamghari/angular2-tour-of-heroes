@@ -13,7 +13,8 @@
   },
   "filesGlob": [
     "app/**/*.ts",
-    "typings/**/*.d.ts"
+    "typings/**/*.d.ts",
+    "node_modules/immutable/dist/immutable.d.ts"
   ],
   "files": [
     "app/app.component.ts",
@@ -26,7 +27,8 @@
     "app/mock-heroes.ts",
     "typings/node-uuid/node-uuid-base.d.ts",
     "typings/node-uuid/node-uuid-global.d.ts",
-    "typings/tsd.d.ts"
+    "typings/tsd.d.ts",
+    "node_modules/immutable/dist/immutable.d.ts"
   ],
   "atom": {
     "rewriteTsconfig": true

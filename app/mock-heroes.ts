@@ -1,6 +1,7 @@
 import { Hero } from './hero';
+import { List } from 'immutable';
 
-export var HEROES: Hero[] = [
+export var HEROES = List<Hero>([
   {'id': uuid.v4(), 'name': 'Mr. Nice'},
   {'id': uuid.v4(), 'name': 'Narco'},
   {'id': uuid.v4(), 'name': 'Bombasto'},
@@ -11,4 +12,4 @@ export var HEROES: Hero[] = [
   {'id': uuid.v4(), 'name': 'Dr IQ'},
   {'id': uuid.v4(), 'name': 'Magma'},
   {'id': uuid.v4(), 'name': 'Tornado'}
-];
+]);

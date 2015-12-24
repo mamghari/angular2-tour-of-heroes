@@ -3,6 +3,7 @@ import {Router} from 'angular2/router';
 import {HeroService} from './hero.service';
 import {HeroDetailComponent} from './hero-detail.component';
 import {Hero} from './hero';
+import { List } from 'immutable';
 
 @Component({
   selector: 'my-heroes',
@@ -11,15 +12,13 @@ import {Hero} from './hero';
   directives: [HeroDetailComponent]
 })
 export class HeroesComponent implements OnInit {
-  public heroes: Hero[];
+  public heroes = List<Hero>();
   public selectedHero: Hero;
 
   constructor(private _heroService: HeroService, private _router: Router) { }
 
   getHeroes() {
     this.selectedHero = undefined;
-    this.heroes = [];
-
     this._heroService.getHeroes().then(heroes => this.heroes = heroes);
 
     return this.heroes;
