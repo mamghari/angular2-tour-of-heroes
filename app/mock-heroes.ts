@@ -1,5 +1,6 @@
 import { Hero } from './hero';
 import { List } from 'immutable';
+import uuid from 'node-uuid';
 
 export var HEROES = List<Hero>([
   {'id': uuid.v4(), 'name': 'Mr. Nice'},
