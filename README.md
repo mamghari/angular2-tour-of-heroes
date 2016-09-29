@@ -1,5 +1,5 @@
 # Getting Started
-
+0. `npm install -g gulp`
 1. `npm i`
 2. `gulp serve`
 
